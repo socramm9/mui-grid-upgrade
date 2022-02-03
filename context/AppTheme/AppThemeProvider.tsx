@@ -9,14 +9,14 @@ import {
   createGenerateClassName,
 } from "@material-ui/core/styles";
 
-const generateClassName = createGenerateClassName({
-  // By enabling this option, if you have non-MUI elements (e.g. `<div />`)
-  // using MUI classes (e.g. `.MuiButton`) they will lose styles.
-  // Make sure to convert them to use `styled()` or `<Box />` first.
-  disableGlobal: true,
-  // Class names will receive this seed to avoid name collisions.
-  seed: "mui-jss",
-});
+// const generateClassName = createGenerateClassName({
+//   // By enabling this option, if you have non-MUI elements (e.g. `<div />`)
+//   // using MUI classes (e.g. `.MuiButton`) they will lose styles.
+//   // Make sure to convert them to use `styled()` or `<Box />` first.
+//   disableGlobal: true,
+//   // Class names will receive this seed to avoid name collisions.
+//   seed: "mui-jss",
+// });
 
 export const lightThemeV4 = createThemeV4({
   palette: {
@@ -34,7 +34,7 @@ export const darkThemeV4 = createThemeV4({
     },
   },
 });
-export const lightThemeV5 = createThemeV5({
+/* export const lightThemeV5 = createThemeV5({
   palette: {
     mode: "light",
 
@@ -50,7 +50,7 @@ export const darkThemeV5 = createThemeV5({
       main: "rgb(15, 104, 53)",
     },
   },
-});
+}); */
 
 export interface ThemeState {
   isDarkMode: boolean;
@@ -82,14 +82,14 @@ export const AppThemeProvider: React.FC = ({ children }) => {
   };
 
   return (
-    <StylesProvider generateClassName={generateClassName}>
-      <ThemeProviderV4 theme={isDarkMode ? darkThemeV4 : lightThemeV4}>
-        <ThemeProviderV5 theme={isDarkMode ? darkThemeV5 : lightThemeV5}>
-          <AppThemeContext.Provider value={{ isDarkMode, toogleTheme }}>
-            {children}
-          </AppThemeContext.Provider>
-        </ThemeProviderV5>
-      </ThemeProviderV4>
-    </StylesProvider>
+    // <StylesProvider generateClassName={generateClassName}>
+    <ThemeProviderV4 theme={isDarkMode ? darkThemeV4 : lightThemeV4}>
+      {/* <ThemeProviderV5 theme={isDarkMode ? darkThemeV5 : lightThemeV5}> */}
+      <AppThemeContext.Provider value={{ isDarkMode, toogleTheme }}>
+        {children}
+      </AppThemeContext.Provider>
+      {/* </ThemeProviderV5> */}
+    </ThemeProviderV4>
+    // </StylesProvider>
   );
 };
