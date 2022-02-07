@@ -1,4 +1,10 @@
-import { Grid, makeStyles, GridProps } from "@material-ui/core";
+import {
+  Button as ButtonV4,
+  Grid,
+  makeStyles,
+  GridProps,
+} from "@material-ui/core";
+import { Button as ButtonV5 } from "@mui/material";
 import { LoginForm } from "../../components";
 import DemoGrid from "../../components/DemoGrid";
 import React from "react";
@@ -42,6 +48,10 @@ export default function Login() {
           </Grid>
         </Grid>
       </Grid>
+      <ButtonV4 variant="contained" color="primary">
+        Button V4
+      </ButtonV4>
+      <ButtonV5 variant="contained">Button V5</ButtonV5>
       <DemoGrid />
     </>
   );
