@@ -1,5 +1,6 @@
 import { Grid, makeStyles, GridProps } from "@material-ui/core";
 import { LoginForm } from "../../components";
+import DemoGrid from "../../components/DemoGrid";
 import React from "react";
 
 const gridLoginProps: GridProps = {
@@ -17,39 +18,39 @@ export default function Login() {
   const classes = useStyles();
 
   return (
-    <Grid container component="main">
-      <Grid
-        item
-        className={classes.leftContainer}
-        wrap="nowrap"
-        {...gridLoginProps}>
+    <>
+      <Grid container component="main">
         <Grid
           item
-          container
-          xs
-          alignContent="center"
-          justifyContent="center"
-          className={classes.loginItems}>
-          <Grid item container alignItems="center" direction="column"></Grid>
-        </Grid>
-        <Grid item container xs className={classes.loginItems}>
-          <LoginForm
-            onSubmit={(result) => {}}
-            onForgotPassword={(user) => {}}
-          />
+          className={classes.leftContainer}
+          wrap="nowrap"
+          {...gridLoginProps}>
+          <Grid
+            item
+            container
+            xs
+            alignContent="center"
+            justifyContent="center"
+            className={classes.loginItems}>
+            <Grid item container alignItems="center" direction="column"></Grid>
+          </Grid>
+          <Grid item container xs className={classes.loginItems}>
+            <LoginForm
+              onSubmit={(result) => {}}
+              onForgotPassword={(user) => {}}
+            />
+          </Grid>
         </Grid>
       </Grid>
-    </Grid>
+      <DemoGrid />
+    </>
   );
 }
 
 const useStyles = makeStyles((theme) => ({
   leftContainer: {
     padding: theme.spacing(2, 0),
-    minHeight: "100vh",
-    [theme.breakpoints.down("sm")]: {
-      minHeight: "83vh",
-    },
+    minHeight: "50vh",
   },
   loginItems: {
     maxWidth: 450,
